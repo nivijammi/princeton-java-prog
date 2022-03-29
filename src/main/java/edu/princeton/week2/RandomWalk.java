@@ -1,4 +1,6 @@
 package edu.princeton.week2;
+
+import java.util.Random;
 /**
  * Random walk. A Java programmer begins walking aimlessly.
  * At each time step, she takes one step in a random direction
@@ -12,5 +14,71 @@ package edu.princeton.week2;
  * treating the starting point as (0, 0). Also, print the total number of steps taken.*/
 
 public class RandomWalk {
+
+                     // N2 (x,y+1)
+    // W1 (x-1,y)        (x, y)      // E0 (x+1,y)
+                    // S3  (x,y-1)
+
+
+
+    public int randomWlk(int r) {
+        int x = 0; int y = 0;
+        int currentDistance = 0;
+        int stepsTakenInTotal = 0;
+
+        System.out.println("Initial Coordinates (" + x + "," + y + ")"); // prints the initial (0,0) step
+
+        // while currentDistance < r
+        while(currentDistance < r){
+
+            // generates the random direction the walker wishes to take
+            int randomNum = generateRandomNum();
+
+            // Update the coordinates x or y values
+            if(randomNum == 0){
+                x++;
+            }else if(randomNum == 1){
+                x--;
+            }else if(randomNum == 2){
+                y++;
+            }else if(randomNum == 3){
+                y--;
+            }else{
+                System.err.println("In else .... x" +x + " y " +y);
+            }
+
+            // Calculate the distance
+            currentDistance = calculateManhattanDistance(x, y);
+
+            // Increment the steps
+            stepsTakenInTotal += 1;
+
+            // Print current state
+            System.out.println("Updated Coordinates (" + x + "," + y + ") currentDistance " +currentDistance +" stepsTakenInTotal " +stepsTakenInTotal);
+        }
+
+        System.out.println(stepsTakenInTotal);
+        return stepsTakenInTotal;
+    }
+
+    private int calculateManhattanDistance(int x, int y) {
+        int distance = Math.abs(x) + Math.abs(y);
+        return distance;
+    }
+
+    public int generateRandomNum(){
+        Random random = new Random();
+        int value = random.nextInt(4);
+        System.out.println(value);
+        return value;
+    }
+
+
+
+    public static void main(String[] args) {
+        RandomWalk walker = new RandomWalk();
+        walker.randomWlk(5);
+    }
+
 
 }
