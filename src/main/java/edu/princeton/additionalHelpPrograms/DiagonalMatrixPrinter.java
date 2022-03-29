@@ -5,9 +5,10 @@ public class DiagonalMatrixPrinter {
         int rowIndex;
         int colIndex;
         int k;
-//for loop for diagonals that starts from the first elements of the rows
-//variable k denotes the starting of the element in rows
-//loop execute till m-1 rowIndex.e. if matrix is m*n (3*3) the loop executes from k=0 to 2
+
+        //for loop for diagonals that starts from the first elements of the rows
+        //variable k denotes the starting of the element in rows
+        //loop execute till m-1 rowIndex.e. if matrix is m*n (3*3) the loop executes from k=0 to 2
         for (k = 0; k <= m - 1; k++) {
             rowIndex = k; //the first element of the diagonal starts form the k-th row
             colIndex = 0; //the first element of the diagonal starts form the first column
