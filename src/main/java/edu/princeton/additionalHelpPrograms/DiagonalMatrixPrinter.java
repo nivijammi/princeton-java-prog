@@ -1,8 +1,6 @@
 package edu.princeton.additionalHelpPrograms;
 
-import java.io.*;
-
-public class PrintMatrixDiagonally {
+public class DiagonalMatrixPrinter {
     public void printDiagonals(int arr[][], int m, int n ) {
         int rowIndex;
         int colIndex;
@@ -42,7 +40,7 @@ public class PrintMatrixDiagonally {
     }
 
     public static void main(String[] args) {
-        PrintMatrixDiagonally object = new PrintMatrixDiagonally();
+        DiagonalMatrixPrinter object = new DiagonalMatrixPrinter();
         int arr[][] = {{3, 7, 9}, {2, 1, 5}, {8, 6, 4}};
         object.printDiagonals(arr,3,3);
     }

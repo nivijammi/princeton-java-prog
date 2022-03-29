@@ -1,6 +1,6 @@
 package edu.princeton.additionalHelpPrograms;
 
-public class PrintMatrixWithArrays {
+public class MatrixWithArraysPrinter {
     public void printMatrix(int[][] matrix){
        for(int row=0; row< matrix.length;row++){
            for(int col =0; col<matrix[row].length;col++){
@@ -11,7 +11,7 @@ public class PrintMatrixWithArrays {
     }
 
     public static void main(String[] args) {
-        PrintMatrixWithArrays object = new PrintMatrixWithArrays();
+        MatrixWithArraysPrinter object = new MatrixWithArraysPrinter();
         int[][] matrix = {
                 {1, 2, 3},{4, 5, 6},{7, 8, 9}
         };

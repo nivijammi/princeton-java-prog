@@ -1,6 +1,6 @@
 package edu.princeton.additionalHelpPrograms;
 
-public class PrintMatrix {
+public class MatrixPrinter {
     public void printMatrix(int n){
         int num =0;
         for(int row =0;row<n;row++){
@@ -15,7 +15,7 @@ public class PrintMatrix {
     }
 
     public static void main(String[] args) {
-        PrintMatrix object = new PrintMatrix();
+        MatrixPrinter object = new MatrixPrinter();
         object.printMatrix(3);
     }
 }
