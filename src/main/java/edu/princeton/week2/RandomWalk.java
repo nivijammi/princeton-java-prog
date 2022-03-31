@@ -11,7 +11,16 @@ import java.util.Random;
  * Write a program RandomWalker.java that takes an integer command-line argument r
  * and simulates the motion of a random walk until the random walker is at Manhattan distance r from the starting point.
  * Print the coordinates at each step of the walk (including the starting and ending points),
- * treating the starting point as (0, 0). Also, print the total number of steps taken.*/
+ * treating the starting point as (0, 0). Also, print the total number of steps taken.
+ *
+ * ans: loop while the Manhattan Distance from start is less than the desired Manhattan Distance.
+ * take a step - calculate new coordinates
+ * increase the step counter
+ * print the coordinates (start - end coordinates)
+ * recalculate the Manhattan Distance.
+ * End of the loop
+ * Print the total number of steps
+ * */
 
 public class RandomWalk {
 
