@@ -61,17 +61,20 @@ public class RandomWalkers {
                 currentDistance = getDistance(xx, yy);
 
                 stepsTaken++;                           //steps taken to reach ManhattanDistance r
-                System.out.println(stepsTaken);
+                //System.out.println(stepsTaken);
             }
 
             //step 5: Add to the total number of steps
             totalNumSteps += stepsTaken;
-            System.out.println("Total steps Taken are: " + totalNumSteps);
+            //System.out.println("Total steps Taken are: " + totalNumSteps);
+
+            double currentAverage = totalNumSteps / (double)i;
+            System.out.println("Average at step " +i +": "+currentAverage);
         }
 
         // Calculate the average number of steps
         averageNoOfSteps = totalNumSteps / (double)trials; //
-        System.out.println("average number of steps = " + averageNoOfSteps);
+        System.out.println("Average number of steps for total number of trials ("+trials +"): " + averageNoOfSteps);
 
         return averageNoOfSteps;
     }
@@ -93,6 +96,6 @@ public class RandomWalkers {
 
     public static void main(String[] args) {
         RandomWalkers object = new RandomWalkers();
-        object.averageStepsTakenByRandomWalker(5,1000000);
+        object.averageStepsTakenByRandomWalker(5,10);
     }
 }
