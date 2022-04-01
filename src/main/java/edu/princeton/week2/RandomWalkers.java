@@ -40,31 +40,39 @@ public class RandomWalkers {
 
         //step 4: Make sure the experiments don't exceed the number of trials
         for (long i = 0; i < trials; i++) {
-            //step 3: while we haven't reached the ManhattanDistance keep taking random steps and calculating the steps taken
 
+            //step 3: while we haven't reached the manhattanDistance keep taking random steps and calculating the steps taken
             while ( currentDistance != r) {
+
                 // generates the random direction the walker wishes to take
                 int randomDirection = generateRandomNum();
-                if (randomDirection == 0) {//North
+
+                if (randomDirection == 0) {             //North
                     yy++;
-                } else if (randomDirection == 1) {//south
+                } else if (randomDirection == 1) {      //south
                     yy--;
-                } else if (randomDirection == 2) {//East
+                } else if (randomDirection == 2) {      //East
                     xx++;
-                } else if (randomDirection == 3) {//west
+                } else if (randomDirection == 3) {      //west
                     xx--;
                 }
-                currentDistance = getDistance(xx,yy);
-                stepsTaken++; //steps taken to reach ManhattanDistance r
+
+                // Calculate new current manhattanDistance
+                currentDistance = getDistance(xx, yy);
+
+                stepsTaken++;                           //steps taken to reach ManhattanDistance r
                 System.out.println(stepsTaken);
             }
-            //step 5: calculating the steps totalled with every trial
+
+            //step 5: Add to the total number of steps
             totalNumSteps += stepsTaken;
             System.out.println("Total steps Taken are: " + totalNumSteps);
         }
-        // taking the average number of steps
+
+        // Calculate the average number of steps
         averageNoOfSteps = totalNumSteps / (double)trials; //
         System.out.println("average number of steps = " + averageNoOfSteps);
+
         return averageNoOfSteps;
     }
 
