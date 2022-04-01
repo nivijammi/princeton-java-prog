@@ -44,14 +44,14 @@ public class RandomWalk {
             int randomNum = generateRandomNum();
 
             // Update the coordinates x or y values
-            if(randomNum == 0){
-                x++;
-            }else if(randomNum == 1){
-                x--;
-            }else if(randomNum == 2){
+            if(randomNum == 0){//north
                 y++;
-            }else if(randomNum == 3){
+            }else if(randomNum == 1){//south
                 y--;
+            }else if(randomNum == 2){//east
+                x++;
+            }else if(randomNum == 3){//west
+                x--;
             }else{
                 System.err.println("In else .... x" +x + " y " +y);
             }
