@@ -96,6 +96,6 @@ public class RandomWalkers {
 
     public static void main(String[] args) {
         RandomWalkers object = new RandomWalkers();
-        object.averageStepsTakenByRandomWalker(5,10);
+        object.averageStepsTakenByRandomWalker(5,10000);
     }
 }
