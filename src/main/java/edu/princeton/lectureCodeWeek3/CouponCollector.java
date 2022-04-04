@@ -15,6 +15,7 @@ package edu.princeton.lectureCodeWeek3;
 public class CouponCollector {
     public static void main(String[] args) {
         int M = Integer.parseInt(args[0]);
+        int trials = Integer.parseInt(args[1]);
         int cards =0; //number of cards collected
         int distinct =0; // number of unique or distinct cards
 
@@ -27,6 +28,6 @@ public class CouponCollector {
                 found[r] = true;
             }
         }
-        System.out.println(cards);
+        System.out.println(cards/trials);
     }
 }
