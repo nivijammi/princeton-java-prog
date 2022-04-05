@@ -15,13 +15,16 @@ package edu.princeton.lectureCodeWeek3;
 
 public class SelfAvoidingRandomWalks {
     public static void main(String[] args) {
-        int N = Integer.parseInt(args[0]);
-        int trials = Integer.parseInt(args[1]);
+        //int N = Integer.parseInt(args[0]);
+        //int trials = Integer.parseInt(args[1]);
+        int N = 10;
+        int trials = 100;
         int deadEnds =0; // number of times reach a dead end.
 
         for(int t=0; t<trials; t++){
             boolean[][] a = new boolean[N][N];
             int x = N/2, y = N/2; // co-ordinates for starting point that will be in the middle so N/2
+
             while (x>0 && x < N-1 && y>0 && y <N-1){ //any of those conditions come true means dog escaped.
                 if(a[x-1][y] && a[x+1][y] && a[x][y-1] && a[x][y+1]){//all places visited means dog is stuck
                     deadEnds++;
