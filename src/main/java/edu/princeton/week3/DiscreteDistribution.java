@@ -32,8 +32,6 @@ public class DiscreteDistribution{
             cumulativeSum[0] = 0;
             cumulativeSum[i] = cumulativeSum[i-1] + n[i];
         }
-
-
         //step 2:generate random integer r uniformly between 0 and Sn−1
         for(int m =0; m<n[0];m++) { // while loop can also be used,m is 10 here
             //generate a number between 0-totalCount
@@ -50,9 +48,7 @@ public class DiscreteDistribution{
             System.out.println("for random number " + r + "the unique index is: " + " " + index + " ");
         }
 
-
     }
-
     public static void main(String[] args) {
         DiscreteDistribution object = new DiscreteDistribution();
         int n[] = {10,10,10,10,10,10,50};//here n[0] is m...times you want the random no. to be generated and given to a unique index.
