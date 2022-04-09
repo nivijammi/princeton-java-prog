@@ -45,13 +45,15 @@ public class DiscreteDistribution{
                 }
             }
             //System.out.println(Arrays.toString(cumulativeSum));
-            System.out.println("for random number " + r + "the unique index is: " + " " + index + " ");
+            System.out.println("for random number " + r + " " + "the unique index is: " + " " + index + " ");
         }
 
     }
     public static void main(String[] args) {
         DiscreteDistribution object = new DiscreteDistribution();
-        int n[] = {10,10,10,10,10,10,50};//here n[0] is m...times you want the random no. to be generated and given to a unique index.
+        //int n[] = {10,10,10,10,10,10,50};//here n[0] is m...times you want the random no. to be generated and given to a unique index.
+        //int n[] = {25,1,1,1,1,1,1};
+        int[]n = {25,80,20};
         object.uniqueIndex(n);
     }
 
