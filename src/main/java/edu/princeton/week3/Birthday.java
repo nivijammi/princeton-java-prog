@@ -20,16 +20,16 @@ package edu.princeton.week3;
  */
 
 public class Birthday {
-    public void sameBirthdayProbability(int n, int trials) {
+    public void howManyEnterUntilTwoShareABirthday(int n, int trials) {
 
         boolean[] birthdayArray = null; //to keep track of which birthdays have been encountered so far in a single experiment
-        int[] timesIPeopleEnteredTheRoom = new int[n + 2];//to keep track of the number of times that exactly i people entered the room across all experiments
+        int[] timesIPeopleEnteredTheRoom = new int[n + 2];//to keep track of the number of times that exactly i people entered the room across all experiments having same birthday
 
         for (int j = 0; j < trials; j++) {
             birthdayArray = new boolean[n];//for the start of every new trial we want a fresh birthday array or reset array to false
             //choose a random birthday between 0 and n-1
             for (int i = 0; i < n; i++) {
-                int random = (int) (Math.random() * (n-1));
+                int random = (int) (Math.random() * (n-1));// generating a random birthday
                 //System.out.println(random);
                 if (!birthdayArray[random]) {
                     birthdayArray[random] = true;
@@ -39,10 +39,10 @@ public class Birthday {
                 }
             }
         }
-        fraction(trials, timesIPeopleEnteredTheRoom);
+        fractionResult(trials, timesIPeopleEnteredTheRoom);
     }
 
-    public void fraction (int trials, int[] timesIPeopleEnteredTheRoom) {
+    public void fractionResult(int trials, int[] timesIPeopleEnteredTheRoom) {
         int k =1;
         double fraction = 0.0;
         double totalSumOfVisits = 0.0;
@@ -57,6 +57,6 @@ public class Birthday {
 
     public static void main(String[] args) {
         Birthday object = new Birthday();
-        object.sameBirthdayProbability(365,1000000);
+        object.howManyEnterUntilTwoShareABirthday(365,1000000);
     }
 }
