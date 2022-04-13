@@ -22,41 +22,45 @@ package edu.princeton.week3;
 public class Birthday {
     public void howManyEnterUntilTwoShareABirthday(int n, int trials) {
 
-        boolean[] birthdayArray = null; //to keep track of which birthdays have been encountered so far in a single experiment
-        int[] timesIPeopleEnteredTheRoom = new int[n + 2];//to keep track of the number of times that exactly i people entered the room across all experiments having same birthday
+        boolean[] birthdayArray = null; //birthdays encountered in a single experiment
+        int[] timesCollisionsHappen = new int[n + 2];// number of times two people entered the room with same birthday
 
+        // for each number of trials/experiments how many people needed to compared before a match is found.
         for (int j = 0; j < trials; j++) {
-            birthdayArray = new boolean[n];//for the start of every new trial we want a fresh birthday array or reset array to false
-            //choose a random birthday between 0 and n-1
-            for (int i = 0; i < n; i++) {
-                int random = (int) (Math.random() * (n-1));// generating a random birthday
+            birthdayArray = new boolean[n];// resetting the array for every fresh experiment
+
+            // generating random birthday for every person entering the room
+            for (int i = 0; i < n; i++) { //n is the number of people
+                int random = (int) (Math.random() * (n-1));
                 //System.out.println(random);
                 if (!birthdayArray[random]) {
                     birthdayArray[random] = true;
                 } else {
-                    timesIPeopleEnteredTheRoom[i]++;
+                    timesCollisionsHappen[i]++;
                     break;
                 }
             }
         }
-        fractionResult(trials, timesIPeopleEnteredTheRoom);
+        fractionResult(trials, timesCollisionsHappen);
     }
 
-    public void fractionResult(int trials, int[] timesIPeopleEnteredTheRoom) {
-        int k =1;
-        double fraction = 0.0;
-        double totalSumOfVisits = 0.0;
-        while (fraction < 0.5){
-            totalSumOfVisits += timesIPeopleEnteredTheRoom[k];
-            fraction = totalSumOfVisits/ trials;
-            System.out.println(k + "   " +totalSumOfVisits + "   "+ fraction);
-            k++;
+    public void fractionResult(int trials, int[] timesCollisionsHappen) {
+        int people =1;
+        double probability = 0.0;
+        double totalCollisions = 0.0;
+        while (probability < 0.5){ // till fraction exceeds half
+            totalCollisions += timesCollisionsHappen[people-1];// probability *= 1 - ((365-people)/ 365)
+            probability = totalCollisions/ trials;
+            //among 1 million trials fraction in which first duplicate birthday happen before 1-nth people entered the room
+            System.out.println("for " + people + " people in the room   " + totalCollisions + "   "+ "the probability is " +  probability);
+
+            people++;
         }
     }
 
 
     public static void main(String[] args) {
         Birthday object = new Birthday();
-        object.howManyEnterUntilTwoShareABirthday(365,1000000);
+        object.howManyEnterUntilTwoShareABirthday(31,1000000);
     }
 }
